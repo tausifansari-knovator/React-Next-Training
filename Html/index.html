@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A modern, accessible webpage with semantic HTML, forms, and media."
+    />
+    <title>Modern Semantic Webpage</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>WEB PAGE</h1>
+      <p>A showcase of semantic HTML and modern web design</p>
+    </header>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#form">Form</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="layout">
+      <aside>
+        <h2>Modules</h2>
+        <ul>
+          <li><a href="#module1"> Module 1</a></li>
+          <li><a href="#module2"> Module 2</a></li>
+          <li><a href="#module3"> Module 3</a></li>
+          <li><a href="#module4"> Module 4</a></li>
+        </ul>
+      </aside>
+
+      <main>
+        <section id="home" aria-labelledby="home-heading">
+          <h2 id="home-heading">Home</h2>
+          <article id="home-artical">
+            <h3>Welcome</h3>
+            <p>
+              Explore this webpage to see modern HTML and CSS in action.
+              Navigate through sections to interact with forms, view media, and
+              learn more about the content.
+            </p>
+          </article>
+        </section>
+
+        <section id="form" aria-labelledby="form-heading">
+          <h2 id="form-heading">Contact Us</h2>
+          <form action="" method="post" novalidate>
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                minlength="2"
+                aria-describedby="name-hint"
+              />
+              <small id="name-hint"
+                >Enter your full name (minimum 2 characters).</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-describedby="email-hint"
+              />
+              <small id="email-hint">We'll never share your email.</small>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="support">Support</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                minlength="10"
+                aria-describedby="message-hint"
+              ></textarea>
+              <small id="message-hint">Minimum 10 characters.</small>
+            </div>
+            <div class="checkbox-group">
+              <label>
+                <input type="checkbox" name="preferences" value="newsletter" />
+                Subscribe to Newsletter
+              </label>
+              <label>
+                <input type="checkbox" name="preferences" value="updates" />
+                Receive Updates
+              </label>
+            </div>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="contact" value="email" required />
+                Email
+              </label>
+              <label>
+                <input type="radio" name="contact" value="phone" /> Phone
+              </label>
+            </div>
+            <div class="form-group">
+              <button onclick="alert('form submitted');">Submit</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="media" aria-labelledby="media-heading">
+          <h2 id="media-heading">Media Gallery</h2>
+          <div class="media">
+            <img
+              src="https://placehold.co/300x200"
+              alt="Scenic landscape"
+              loading="lazy"
+            />
+            <video
+              controls
+              height="200"
+              widht="300"
+              loading="lazy"
+              aria-label="Sample video"
+            >
+              <source
+                src="https://www.w3schools.com/html/mov_bbb.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+
+        <section id="about" aria-labelledby="about-heading">
+          <h2 id="about-heading">About This Page</h2>
+          <article id="about-artical">
+            <p>
+              This webpage demonstrates modern web development practices,
+              including semantic HTML, accessible forms, and responsive design.
+            </p>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>© 2025 Modern Webpage. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          target.scrollIntoView({ behavior: "smooth" });
+
+          // Update active class
+          document
+            .querySelectorAll("nav a")
+            .forEach((link) => link.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
